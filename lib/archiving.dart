@@ -1,10 +1,9 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:opentok_flutter_samples/src/config/sdk_states.dart';
 import 'package:permission_handler/permission_handler.dart';
+
+import '/src/config/sdk_states.dart';
 
 class Archiving extends StatelessWidget {
   const Archiving({Key? key}) : super(key: key);
@@ -15,13 +14,13 @@ class Archiving extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Archiving"),
         ),
-        body: const ArchivingWidget(title: 'Archiving')
-    );
+        body: const ArchivingWidget(title: 'Archiving'));
   }
 }
 
 class ArchivingWidget extends StatefulWidget {
-  const ArchivingWidget({Key key = const Key("any_key"), required this.title}) : super(key: key);
+  const ArchivingWidget({Key key = const Key("any_key"), required this.title})
+      : super(key: key);
   final String title;
 
   @override
@@ -68,14 +67,12 @@ class _ArchivingWidgetState extends State<ArchivingWidget> {
     await requestPermissions();
     try {
       await platformMethodChannel.invokeMethod('initSession');
-
     } on PlatformException catch (e) {
       if (kDebugMode) {
         print(e);
       }
     }
   }
-
 
   Future<void> requestPermissions() async {
     await [Permission.microphone, Permission.camera].request();
@@ -122,7 +119,6 @@ class _ArchivingWidgetState extends State<ArchivingWidget> {
   }
 
   Widget _updateView() {
-
     if (_sdkState == SdkState.loggedOut) {
       return ElevatedButton(
           onPressed: () {
@@ -144,7 +140,7 @@ class _ArchivingWidgetState extends State<ArchivingWidget> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               ElevatedButton(
-                onPressed: () {  },
+                onPressed: () {},
                 child: Icon(
                   Icons.circle,
                   color: _isArchiving ? Colors.red : Colors.grey,
@@ -204,4 +200,3 @@ class ArchivingPlatFormSpecificView extends StatelessWidget {
         creationParamsCodec: _decoder);
   }
 }
-

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:opentok_flutter_samples/screen_sharing.dart';
-import 'package:opentok_flutter_samples/signaling.dart';
+import '/screen_sharing.dart';
+import '/signaling.dart';
 
 import 'archiving.dart';
 import 'flutter_open_tok_lib.dart';
