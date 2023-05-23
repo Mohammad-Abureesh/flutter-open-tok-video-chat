@@ -32,6 +32,6 @@ flutter:
     platforms:
       android:
         package: com.vonage.tutorial.opentok.opentok_flutter_samples
-        pluginClass: GeneratedPluginRegistrant
+        pluginClass: MainActivity
       ios:
         pluginClass: GeneratedPluginRegistrant
