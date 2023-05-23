@@ -33,8 +33,7 @@ class OpenTokPlugin:FlutterPlugin{
     private var archiving: Archiving? = null
     private var multiVideo: MultiVideo? = null
 
-    override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
-        super.configureFlutterEngine(flutterEngine)
+    override fun onAttachedToEngine(flutterEngine: FlutterPlugin.FlutterPluginBinding) {
 
         oneToOneVideo = OneToOneVideo(this)
         signalling = Signalling(this)
@@ -43,27 +42,28 @@ class OpenTokPlugin:FlutterPlugin{
         multiVideo = MultiVideo(this)
 
         flutterEngine
-            .platformViewsController
-            .registry
+            .platformViewRegistry
             .registerViewFactory("opentok-video-container", OpentokVideoFactory())
 
         flutterEngine
-            .platformViewsController
-            .registry
+            .platformViewRegistry
             .registerViewFactory("opentok-screenshare-container", ScreenSharingFactory())
 
         flutterEngine
-            .platformViewsController
-            .registry
+            .platformViewRegistry
             .registerViewFactory("opentok-archiving-container", ArchivingFactory())
 
         flutterEngine
-            .platformViewsController
-            .registry
+            .platformViewRegistry
             .registerViewFactory("opentok-multi-video-container", MultiVideoFactory())
 
         addFlutterChannelListener()
     }
+
+    override fun onDetachedFromEngine(binding: FlutterPlugin.FlutterPluginBinding) {
+    }
+
+
 
     private fun addFlutterChannelListener() {
         flutterEngine?.dartExecutor?.binaryMessenger?.let {
