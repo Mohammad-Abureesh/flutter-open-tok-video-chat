@@ -1,4 +1,4 @@
-package com.pcnc2000.flutter_open_tok_video_chat
+package com.vonage.tutorial.opentok.opentok_flutter_samples
 
 import android.os.Handler
 import android.os.Looper
@@ -19,7 +19,7 @@ import com.pcnc2000.flutter_open_tok_video_chat.singaling.Signalling
 import io.flutter.plugin.common.BinaryMessenger
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 
-class OpenTokPlugin:FlutterPlugin,  FlutterActivity(){
+class OpenTokPlugin:FlutterPlugin{
 
     val oneToOneVideoMethodChannel = "com.vonage.one_to_one_video"
     val signallingMethodChannel = "com.vonage.signalling"
