@@ -1,3 +1,5 @@
+part of flutter_open_tok;
+
 class OpenTokConfig {
   static const apiKey = "46297612";
   static const sessionID =

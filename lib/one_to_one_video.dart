@@ -1,11 +1,4 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:opentok_flutter_samples/signaling.dart';
-import 'package:opentok_flutter_samples/src/config/sdk_states.dart';
-import 'package:permission_handler/permission_handler.dart';
-
-import 'src/config/open_tok_config.dart';
+part of flutter_open_tok;
 
 class VideoChannel {
   static const platformMethodChannel =

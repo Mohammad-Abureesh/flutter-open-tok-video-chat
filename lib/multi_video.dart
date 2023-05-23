@@ -6,8 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:opentok_flutter_samples/src/config/sdk_states.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-import 'src/config/open_tok_config.dart';
-
+import 'flutter_open_tok_lib.dart';
 
 class MultiVideo extends StatelessWidget {
   const MultiVideo({Key? key}) : super(key: key);
@@ -18,13 +17,13 @@ class MultiVideo extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Multi Party Video"),
         ),
-        body: const CallWidget(title: 'Multi Party Video')
-    );
+        body: const CallWidget(title: 'Multi Party Video'));
   }
 }
 
 class CallWidget extends StatefulWidget {
-  const CallWidget({Key key = const Key("any_key"), required this.title}) : super(key: key);
+  const CallWidget({Key key = const Key("any_key"), required this.title})
+      : super(key: key);
   final String title;
 
   @override
@@ -70,14 +69,12 @@ class _CallWidgetState extends State<CallWidget> {
 
     try {
       await platformMethodChannel.invokeMethod('initSession', params);
-
     } on PlatformException catch (e) {
       if (kDebugMode) {
         print(e);
       }
     }
   }
-
 
   Future<void> requestPermissions() async {
     await [Permission.microphone, Permission.camera].request();
@@ -94,7 +91,6 @@ class _CallWidgetState extends State<CallWidget> {
   }
 
   Widget _updateView() {
-
     if (_sdkState == SdkState.loggedOut) {
       return ElevatedButton(
           onPressed: () {
@@ -112,11 +108,11 @@ class _CallWidgetState extends State<CallWidget> {
             height: MediaQuery.of(context).size.height / 2,
             child: PlatformViewLink(
               viewType: 'opentok-multi-video-container',
-              surfaceFactory:
-                  (context, controller) {
+              surfaceFactory: (context, controller) {
                 return AndroidViewSurface(
                   controller: controller as AndroidViewController,
-                  gestureRecognizers: const <Factory<OneSequenceGestureRecognizer>>{},
+                  gestureRecognizers: const <
+                      Factory<OneSequenceGestureRecognizer>>{},
                   hitTestBehavior: PlatformViewHitTestBehavior.opaque,
                 );
               },
@@ -144,4 +140,3 @@ class _CallWidgetState extends State<CallWidget> {
     }
   }
 }
-

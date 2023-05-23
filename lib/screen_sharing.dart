@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:opentok_flutter_samples/src/config/sdk_states.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-import 'src/config/open_tok_config.dart';
+import 'flutter_open_tok_lib.dart';
 
 class ScreenSharing extends StatelessWidget {
   const ScreenSharing({Key? key}) : super(key: key);
@@ -17,13 +17,14 @@ class ScreenSharing extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Screen Sharing"),
         ),
-        body: const ScreenSharingWidget(title: 'Screen Sharing')
-    );
+        body: const ScreenSharingWidget(title: 'Screen Sharing'));
   }
 }
 
 class ScreenSharingWidget extends StatefulWidget {
-  const ScreenSharingWidget({Key key = const Key("any_key"), required this.title}) : super(key: key);
+  const ScreenSharingWidget(
+      {Key key = const Key("any_key"), required this.title})
+      : super(key: key);
   final String title;
 
   @override
@@ -33,7 +34,8 @@ class ScreenSharingWidget extends StatefulWidget {
 class _ScreenSharingWidgetState extends State<ScreenSharingWidget> {
   SdkState _sdkState = SdkState.loggedOut;
 
-  static const platformMethodChannel = MethodChannel('com.vonage.screen_sharing');
+  static const platformMethodChannel =
+      MethodChannel('com.vonage.screen_sharing');
 
   _ScreenSharingWidgetState() {
     platformMethodChannel.setMethodCallHandler(methodCallHandler);
@@ -69,14 +71,12 @@ class _ScreenSharingWidgetState extends State<ScreenSharingWidget> {
 
     try {
       await platformMethodChannel.invokeMethod('initSession', params);
-
     } on PlatformException catch (e) {
       if (kDebugMode) {
         print(e);
       }
     }
   }
-
 
   Future<void> requestPermissions() async {
     await [Permission.microphone, Permission.camera].request();
@@ -93,7 +93,6 @@ class _ScreenSharingWidgetState extends State<ScreenSharingWidget> {
   }
 
   Widget _updateView() {
-
     if (_sdkState == SdkState.loggedOut) {
       return ElevatedButton(
           onPressed: () {
@@ -111,11 +110,11 @@ class _ScreenSharingWidgetState extends State<ScreenSharingWidget> {
             height: MediaQuery.of(context).size.height / 2,
             child: PlatformViewLink(
               viewType: 'opentok-screenshare-container',
-              surfaceFactory:
-                  (context, controller) {
+              surfaceFactory: (context, controller) {
                 return AndroidViewSurface(
                   controller: controller as AndroidViewController,
-                  gestureRecognizers: const <Factory<OneSequenceGestureRecognizer>>{},
+                  gestureRecognizers: const <
+                      Factory<OneSequenceGestureRecognizer>>{},
                   hitTestBehavior: PlatformViewHitTestBehavior.opaque,
                 );
               },

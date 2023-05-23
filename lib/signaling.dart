@@ -2,8 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'one_to_one_video.dart';
-import 'src/config/open_tok_config.dart';
+import 'flutter_open_tok_lib.dart';
 
 class Signaling extends StatelessWidget {
   const Signaling({Key? key}) : super(key: key);

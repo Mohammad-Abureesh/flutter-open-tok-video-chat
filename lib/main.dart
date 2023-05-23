@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:opentok_flutter_samples/screen_sharing.dart';
 import 'package:opentok_flutter_samples/signaling.dart';
-import 'package:opentok_flutter_samples/src/config/open_tok_config.dart';
 
 import 'archiving.dart';
+import 'flutter_open_tok_lib.dart';
 import 'multi_video.dart';
-import 'one_to_one_video.dart';
 
 void main() {
   runApp(const MyApp());
