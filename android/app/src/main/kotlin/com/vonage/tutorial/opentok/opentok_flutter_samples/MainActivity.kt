@@ -149,6 +149,11 @@ class MainActivity : FlutterActivity() {
                     oneToOneVideo?.toggleVideo(publishVideo)
                     result.success("")
                 }
+                "sendMessage" -> {
+                    val message = requireNotNull(call.argument<String>("message"))
+                    oneToOneVideo?.sendMessage(message)
+                    result.success("")
+                }
                 else -> {
                     result.notImplemented()
                 }

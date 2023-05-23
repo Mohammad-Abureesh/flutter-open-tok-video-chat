@@ -10,7 +10,7 @@ class Signalling: NSObject {
     }()
     
     var appDelegate: AppDelegate?
-    var signal_type = "text-signal"
+    var signal_type = "textMessage"
     
     var session: OTSession?
     

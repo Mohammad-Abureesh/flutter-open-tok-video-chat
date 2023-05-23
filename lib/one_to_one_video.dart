@@ -1,30 +1,56 @@
 import 'package:flutter/foundation.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:opentok_flutter_samples/signaling.dart';
 import 'package:opentok_flutter_samples/src/config/sdk_states.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import 'src/config/open_tok_config.dart';
 
+class VideoChannel {
+  static const platformMethodChannel =
+      MethodChannel('com.vonage.one_to_one_video');
+}
 
 class OneToOneVideo extends StatelessWidget {
-  const OneToOneVideo({Key? key}) : super(key: key);
+  final SessionConfig config;
+  const OneToOneVideo({Key? key, required this.config}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("One to One Video"),
-        ),
-        body: const CallWidget(title: 'One to One Video')
+      appBar: AppBar(title: const Text("One to One Video")),
+      floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            //open chat view
+            showDialog(
+                context: context,
+                builder: (_) {
+                  final size = MediaQuery.of(context).size;
+                  return AlertDialog(
+                      content: SizedBox(
+                          width: size.width - 150.0,
+                          height: size.height - 200.0,
+                          child: const SignalWidget(title: 'Chat')));
+                });
+          },
+          child: const Icon(Icons.chat, size: 25.0)),
+      body: CallWidget(title: 'Video call', config: config),
+      // Column(children: const [
+      //   Expanded(child: CallWidget(title: 'One to One Video')),
+      //   Expanded(child: SignalWidget(title: 'CHAT'))
+      // ])
     );
   }
 }
 
 class CallWidget extends StatefulWidget {
-  const CallWidget({Key key = const Key("any_key"), required this.title}) : super(key: key);
+  final SessionConfig config;
+  const CallWidget(
+      {Key key = const Key("any_key"),
+      required this.title,
+      required this.config})
+      : super(key: key);
   final String title;
 
   @override
@@ -36,7 +62,7 @@ class _CallWidgetState extends State<CallWidget> {
   bool _publishAudio = true;
   bool _publishVideo = true;
 
-  static const platformMethodChannel = MethodChannel('com.vonage.one_to_one_video');
+  static const platformMethodChannel = VideoChannel.platformMethodChannel;
 
   _CallWidgetState() {
     platformMethodChannel.setMethodCallHandler(methodCallHandler);
@@ -65,21 +91,20 @@ class _CallWidgetState extends State<CallWidget> {
     await requestPermissions();
 
     dynamic params = {
-      'apiKey': OpenTokConfig.apiKey,
-      'sessionId': OpenTokConfig.sessionID,
-      'token': OpenTokConfig.token
+      'apiKey': widget.config.apiKey,
+      'sessionId': widget.config.sessionId,
+      'token': widget.config.token
     };
 
     try {
-      await platformMethodChannel.invokeMethod('initSession', params);
-
+      await platformMethodChannel.invokeMethod(
+          'initSession', widget.config.encode());
     } on PlatformException catch (e) {
       if (kDebugMode) {
         print(e);
       }
     }
   }
-
 
   Future<void> requestPermissions() async {
     await [Permission.microphone, Permission.camera].request();
@@ -127,15 +152,14 @@ class _CallWidgetState extends State<CallWidget> {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[const SizedBox(), _updateView()],
-        ),
-      );
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[const SizedBox(), _updateView()],
+      ),
+    );
   }
 
   Widget _updateView() {
-
     if (_sdkState == SdkState.loggedOut) {
       return ElevatedButton(
           onPressed: () {
@@ -168,7 +192,7 @@ class _CallWidgetState extends State<CallWidget> {
                 },
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                        (Set<MaterialState> states) {
+                    (Set<MaterialState> states) {
                       if (!_publishAudio) return Colors.grey;
                       return Colors.lightBlue;
                     },
@@ -182,7 +206,7 @@ class _CallWidgetState extends State<CallWidget> {
                 },
                 style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                        (Set<MaterialState> states) {
+                    (Set<MaterialState> states) {
                       if (!_publishVideo) return Colors.grey;
                       return Colors.lightBlue;
                     },
@@ -220,4 +244,3 @@ class PlatFormSpecificView extends StatelessWidget {
         creationParamsCodec: _decoder);
   }
 }
-

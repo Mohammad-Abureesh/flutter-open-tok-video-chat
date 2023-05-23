@@ -5,6 +5,8 @@ import android.util.Log
 import com.opentok.android.*
 import com.vonage.tutorial.opentok.opentok_flutter_samples.MainActivity
 import com.vonage.tutorial.opentok.opentok_flutter_samples.config.SdkState
+import com.opentok.android.Session.SignalListener
+import com.opentok.android.Stream
 
 class OneToOneVideo(mainActivity: MainActivity) {
 
@@ -15,6 +17,16 @@ class OneToOneVideo(mainActivity: MainActivity) {
     private var activity: MainActivity? = null
 
     private lateinit var opentokVideoPlatformView: OpentokVideoPlatformView
+
+    val sendMsgTag = "Signalling"
+    private val signal_type = "textMessage"
+
+    private val signalListener = SignalListener { session, type, data, connection ->
+            val remote = !connection.equals(session.connection)
+            if (type != null && type == signal_type) {
+                showMessage(data, remote)
+            }
+        }
 
     private val sessionListener: Session.SessionListener = object : Session.SessionListener {
         override fun onConnected(session: Session) {
@@ -125,6 +137,8 @@ class OneToOneVideo(mainActivity: MainActivity) {
         }
     }
 
+
+
     init {
         activity = mainActivity
         opentokVideoPlatformView = OpentokVideoFactory.getViewInstance(activity)
@@ -133,6 +147,7 @@ class OneToOneVideo(mainActivity: MainActivity) {
     fun initSession(apiKey: String, sessionId: String, token: String) {
         session = Session.Builder(activity, apiKey, sessionId).build()
         session?.setSessionListener(sessionListener)
+        session?.setSignalListener(signalListener);
         session?.connect(token)
     }
 
@@ -147,4 +162,18 @@ class OneToOneVideo(mainActivity: MainActivity) {
     fun toggleVideo(publishVideo: Boolean) {
         publisher?.publishVideo = publishVideo
     }
+
+    fun sendMessage(message: String) {
+        Log.d(sendMsgTag, "Send Message")
+        session!!.sendSignal(signal_type, message)
+    }
+
+    private fun showMessage(messageData: String, remote: Boolean) {
+        Log.d(sendMsgTag, "Show Message")
+        val arguments: HashMap<String, Any> = HashMap()
+        arguments["message"] = messageData
+        arguments["remote"] = remote
+        activity?.updateFlutterMessages(arguments, activity!!.oneToOneVideoMethodChannel)
+    }
+
 }

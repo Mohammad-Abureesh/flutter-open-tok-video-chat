@@ -11,7 +11,7 @@ import com.vonage.tutorial.opentok.opentok_flutter_samples.MainActivity
 
 class Signalling(mainActivity: MainActivity) {
     val tag = "Signalling"
-    private val signal_type = "text-signal"
+    private val signal_type = "textMessage"
 
     private var activity: MainActivity? = null
     private var session: Session? = null

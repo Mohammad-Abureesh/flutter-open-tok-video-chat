@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'one_to_one_video.dart';
 import 'src/config/open_tok_config.dart';
 
 class Signaling extends StatelessWidget {
@@ -27,7 +28,7 @@ class SignalWidget extends StatefulWidget {
 }
 
 class _SignalWidgetState extends State<SignalWidget> {
-  static const platformMethodChannel = MethodChannel('com.vonage.signalling');
+  static const platformMethodChannel = VideoChannel.platformMethodChannel;
   TextEditingController nameController = TextEditingController();
 
   final List<String> messages = <String>[];
@@ -36,7 +37,7 @@ class _SignalWidgetState extends State<SignalWidget> {
   _SignalWidgetState() {
     platformMethodChannel.setMethodCallHandler(methodCallHandler);
 
-    _initSession();
+    // _initSession();
   }
 
   Future<dynamic> methodCallHandler(MethodCall methodCall) async {
