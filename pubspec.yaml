@@ -32,6 +32,6 @@ flutter:
     platforms:
       android:
         package: com.pcnc2000.flutter_open_tok_video_chat
-        pluginClass: MainActivity
+        pluginClass: OpenTokPlugin
       ios:
-        pluginClass: GeneratedPluginRegistrant
+        pluginClass: OpenTokPlugin
