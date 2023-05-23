@@ -7,12 +7,15 @@ class VideoChannel {
 
 class OneToOneVideo extends StatelessWidget {
   final SessionConfig config;
-  const OneToOneVideo({Key? key, required this.config}) : super(key: key);
+  final PreferredSizeWidget? appBar;
+
+  const OneToOneVideo({Key? key, required this.config, this.appBar})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("One to One Video")),
+      appBar: appBar,
       floatingActionButton: FloatingActionButton(
           onPressed: () {
             //open chat view

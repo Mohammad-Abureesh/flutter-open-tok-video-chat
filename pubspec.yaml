@@ -32,6 +32,6 @@ flutter:
     platforms:
       android:
         package: com.vonage.tutorial.opentok.opentok_flutter_samples
-        pluginClass: OneToOneVideo
+        pluginClass: MainActivity
       ios:
         pluginClass: OpentokFlutterPlugin
