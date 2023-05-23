@@ -1,4 +1,4 @@
-package com.vonage.tutorial.opentok.opentok_flutter_samples.one_to_one_video
+package com.pcnc2000.flutter_open_tok_video_chat.one_to_one_video
 
 import android.content.Context
 import android.view.View

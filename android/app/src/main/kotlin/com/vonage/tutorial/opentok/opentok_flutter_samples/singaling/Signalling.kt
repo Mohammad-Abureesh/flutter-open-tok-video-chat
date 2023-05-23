@@ -1,4 +1,4 @@
-package com.vonage.tutorial.opentok.opentok_flutter_samples.singaling
+package com.pcnc2000.flutter_open_tok_video_chat.singaling
 
 import android.util.Log
 import com.opentok.android.OpentokError
@@ -6,7 +6,7 @@ import com.opentok.android.Session
 import com.opentok.android.Session.SessionListener
 import com.opentok.android.Session.SignalListener
 import com.opentok.android.Stream
-import com.vonage.tutorial.opentok.opentok_flutter_samples.MainActivity
+import com.pcnc2000.flutter_open_tok_video_chat.MainActivity
 
 
 class Signalling(mainActivity: MainActivity) {

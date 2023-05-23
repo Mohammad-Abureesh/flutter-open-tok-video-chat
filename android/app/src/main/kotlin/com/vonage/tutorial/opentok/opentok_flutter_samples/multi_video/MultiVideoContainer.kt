@@ -1,10 +1,10 @@
-package com.vonage.tutorial.opentok.opentok_flutter_samples.multi_video
+package com.pcnc2000.flutter_open_tok_video_chat.multi_video
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.vonage.tutorial.opentok.opentok_flutter_samples.R
+import com.pcnc2000.flutter_open_tok_video_chat.R
 
 class MultiVideoContainer @JvmOverloads constructor(
     context: Context,

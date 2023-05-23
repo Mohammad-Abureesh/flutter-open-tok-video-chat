@@ -31,7 +31,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.vonage.tutorial.opentok.opentok_flutter_samples
+        package: com.pcnc2000.flutter_open_tok_video_chat
         pluginClass: MainActivity
       ios:
         pluginClass: GeneratedPluginRegistrant

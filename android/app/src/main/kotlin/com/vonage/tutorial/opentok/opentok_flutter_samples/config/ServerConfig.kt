@@ -1,4 +1,4 @@
-package com.vonage.tutorial.opentok.opentok_flutter_samples.config
+package com.pcnc2000.flutter_open_tok_video_chat.config
 
 object ServerConfig {
     /*

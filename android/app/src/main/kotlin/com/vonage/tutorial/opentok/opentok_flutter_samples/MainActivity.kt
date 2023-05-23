@@ -1,21 +1,21 @@
-package com.vonage.tutorial.opentok.opentok_flutter_samples
+package com.pcnc2000.flutter_open_tok_video_chat
 
 import android.os.Handler
 import android.os.Looper
 import androidx.annotation.NonNull
-import com.vonage.tutorial.opentok.opentok_flutter_samples.archiving.Archiving
-import com.vonage.tutorial.opentok.opentok_flutter_samples.archiving.ArchivingFactory
+import com.pcnc2000.flutter_open_tok_video_chat.archiving.Archiving
+import com.pcnc2000.flutter_open_tok_video_chat.archiving.ArchivingFactory
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
-import com.vonage.tutorial.opentok.opentok_flutter_samples.config.SdkState
-import com.vonage.tutorial.opentok.opentok_flutter_samples.multi_video.MultiVideo
-import com.vonage.tutorial.opentok.opentok_flutter_samples.multi_video.MultiVideoFactory
-import com.vonage.tutorial.opentok.opentok_flutter_samples.one_to_one_video.OneToOneVideo
-import com.vonage.tutorial.opentok.opentok_flutter_samples.one_to_one_video.OpentokVideoFactory
-import com.vonage.tutorial.opentok.opentok_flutter_samples.screen_sharing.ScreenSharing
-import com.vonage.tutorial.opentok.opentok_flutter_samples.screen_sharing.ScreenSharingFactory
-import com.vonage.tutorial.opentok.opentok_flutter_samples.singaling.Signalling
+import com.pcnc2000.flutter_open_tok_video_chat.config.SdkState
+import com.pcnc2000.flutter_open_tok_video_chat.multi_video.MultiVideo
+import com.pcnc2000.flutter_open_tok_video_chat.multi_video.MultiVideoFactory
+import com.pcnc2000.flutter_open_tok_video_chat.one_to_one_video.OneToOneVideo
+import com.pcnc2000.flutter_open_tok_video_chat.one_to_one_video.OpentokVideoFactory
+import com.pcnc2000.flutter_open_tok_video_chat.screen_sharing.ScreenSharing
+import com.pcnc2000.flutter_open_tok_video_chat.screen_sharing.ScreenSharingFactory
+import com.pcnc2000.flutter_open_tok_video_chat.singaling.Signalling
 import io.flutter.plugin.common.BinaryMessenger
 
 class MainActivity : FlutterActivity() {

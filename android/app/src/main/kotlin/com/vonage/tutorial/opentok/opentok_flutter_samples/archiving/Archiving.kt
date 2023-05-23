@@ -1,17 +1,17 @@
-package com.vonage.tutorial.opentok.opentok_flutter_samples.archiving
+package com.pcnc2000.flutter_open_tok_video_chat.archiving
 
 import android.content.Intent
 import android.net.Uri
 import android.opengl.GLSurfaceView
 import android.util.Log
 import com.opentok.android.*
-import com.vonage.tutorial.opentok.opentok_flutter_samples.MainActivity
-import com.vonage.tutorial.opentok.opentok_flutter_samples.archiving.networking.APIService
-import com.vonage.tutorial.opentok.opentok_flutter_samples.archiving.networking.EmptyCallback
-import com.vonage.tutorial.opentok.opentok_flutter_samples.archiving.networking.GetSessionResponse
-import com.vonage.tutorial.opentok.opentok_flutter_samples.archiving.networking.StartArchiveRequest
-import com.vonage.tutorial.opentok.opentok_flutter_samples.config.SdkState
-import com.vonage.tutorial.opentok.opentok_flutter_samples.config.ServerConfig
+import com.pcnc2000.flutter_open_tok_video_chat.MainActivity
+import com.pcnc2000.flutter_open_tok_video_chat.archiving.networking.APIService
+import com.pcnc2000.flutter_open_tok_video_chat.archiving.networking.EmptyCallback
+import com.pcnc2000.flutter_open_tok_video_chat.archiving.networking.GetSessionResponse
+import com.pcnc2000.flutter_open_tok_video_chat.archiving.networking.StartArchiveRequest
+import com.pcnc2000.flutter_open_tok_video_chat.config.SdkState
+import com.pcnc2000.flutter_open_tok_video_chat.config.ServerConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

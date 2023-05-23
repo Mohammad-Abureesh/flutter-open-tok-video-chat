@@ -1,4 +1,4 @@
-package com.vonage.tutorial.opentok.opentok_flutter_samples.multi_video
+package com.pcnc2000.flutter_open_tok_video_chat.multi_video
 
 import android.transition.TransitionManager
 import androidx.constraintlayout.widget.ConstraintLayout

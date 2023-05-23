@@ -1,11 +1,11 @@
-package com.vonage.tutorial.opentok.opentok_flutter_samples.one_to_one_video
+package com.pcnc2000.flutter_open_tok_video_chat.one_to_one_video
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import android.widget.LinearLayout
-import com.vonage.tutorial.opentok.opentok_flutter_samples.R
+import com.pcnc2000.flutter_open_tok_video_chat.R
 
 class OpenTokVideoContainer @JvmOverloads constructor(
     context: Context,

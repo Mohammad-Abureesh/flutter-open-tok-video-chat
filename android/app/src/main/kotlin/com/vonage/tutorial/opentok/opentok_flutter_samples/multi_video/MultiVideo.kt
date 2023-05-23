@@ -1,10 +1,10 @@
-package com.vonage.tutorial.opentok.opentok_flutter_samples.multi_video
+package com.pcnc2000.flutter_open_tok_video_chat.multi_video
 
 import android.util.Log
 import com.opentok.android.*
-import com.vonage.tutorial.opentok.opentok_flutter_samples.MainActivity
-import com.vonage.tutorial.opentok.opentok_flutter_samples.config.SdkState
-import com.vonage.tutorial.opentok.opentok_flutter_samples.R
+import com.pcnc2000.flutter_open_tok_video_chat.MainActivity
+import com.pcnc2000.flutter_open_tok_video_chat.config.SdkState
+import com.pcnc2000.flutter_open_tok_video_chat.R
 
 class MultiVideo(mainActivity: MainActivity) {
 

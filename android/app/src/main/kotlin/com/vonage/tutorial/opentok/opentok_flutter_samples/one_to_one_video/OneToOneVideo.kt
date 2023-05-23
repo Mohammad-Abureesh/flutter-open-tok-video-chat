@@ -1,10 +1,10 @@
-package com.vonage.tutorial.opentok.opentok_flutter_samples.one_to_one_video
+package com.pcnc2000.flutter_open_tok_video_chat.one_to_one_video
 
 import android.opengl.GLSurfaceView
 import android.util.Log
 import com.opentok.android.*
-import com.vonage.tutorial.opentok.opentok_flutter_samples.MainActivity
-import com.vonage.tutorial.opentok.opentok_flutter_samples.config.SdkState
+import com.pcnc2000.flutter_open_tok_video_chat.MainActivity
+import com.pcnc2000.flutter_open_tok_video_chat.config.SdkState
 import com.opentok.android.Session.SignalListener
 import com.opentok.android.Stream
 

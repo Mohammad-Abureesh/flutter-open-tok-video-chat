@@ -1,11 +1,11 @@
-package com.vonage.tutorial.opentok.opentok_flutter_samples.archiving
+package com.pcnc2000.flutter_open_tok_video_chat.archiving
 
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.FrameLayout
 import android.widget.LinearLayout
-import com.vonage.tutorial.opentok.opentok_flutter_samples.R
+import com.pcnc2000.flutter_open_tok_video_chat.R
 
 class ArchivingContainer @JvmOverloads constructor(
     context: Context,

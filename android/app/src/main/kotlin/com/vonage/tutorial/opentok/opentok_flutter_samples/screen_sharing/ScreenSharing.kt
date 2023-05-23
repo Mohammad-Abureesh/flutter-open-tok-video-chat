@@ -1,12 +1,12 @@
-package com.vonage.tutorial.opentok.opentok_flutter_samples.screen_sharing
+package com.pcnc2000.flutter_open_tok_video_chat.screen_sharing
 
 import android.util.Log
 import android.view.View
 import android.webkit.WebSettings
 import android.webkit.WebViewClient
 import com.opentok.android.*
-import com.vonage.tutorial.opentok.opentok_flutter_samples.MainActivity
-import com.vonage.tutorial.opentok.opentok_flutter_samples.config.SdkState
+import com.pcnc2000.flutter_open_tok_video_chat.MainActivity
+import com.pcnc2000.flutter_open_tok_video_chat.config.SdkState
 
 
 class ScreenSharing(mainActivity: MainActivity) {

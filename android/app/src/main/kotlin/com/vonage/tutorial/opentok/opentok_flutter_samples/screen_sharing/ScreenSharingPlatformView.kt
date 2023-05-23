@@ -1,4 +1,4 @@
-package com.vonage.tutorial.opentok.opentok_flutter_samples.screen_sharing
+package com.pcnc2000.flutter_open_tok_video_chat.screen_sharing
 
 import android.content.Context
 import android.view.View
